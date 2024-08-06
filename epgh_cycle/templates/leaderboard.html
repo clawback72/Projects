@@ -1,0 +1,63 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Leaderboards
+{% endblock %}
+
+{% block main %}
+
+    <form action="/leaderboard" method="post">
+        <main class="container py-6">
+            <table id="stable_2" class="table table-hover table-striped table-dark">
+                <caption>User Leaderboard</caption>
+                <thead>
+                    <tr>
+                        <th class="text-start">Name</th>
+                        <th class="text-start">Total Distance</th>
+                        <th class="text-end">Total Time</th>
+                        <th class="text-end">Rides</th>
+                        <th class="text-end">Avg Time</th>
+                        <th class="text-end">Avg MPH</th>
+                    </tr>
+                </thead>
+                {% for stat in stats %}
+                    <tr>
+                        <td class="text-start">{{ stat.name }}</td>
+                        <td class="text-start">{{ stat.distance }}</td>
+                        <td class="text-end">{{ retTime(stat.time) }}</td>
+                        <td class="text-end">{{ stat.rides }}</td>
+                        <td class="text-end">{{ retTime(stat.avg_time) }}</td>
+                        <td class="text-end">{{ stat.avg_mph }}</td>
+                    </tr>
+                {% endfor %}
+                </table>
+                <br>
+                <br>
+                <table id="stable_3" class="table table-hover table-striped table-dark">
+                    <caption>Trail Leaderboard</caption>
+                    <thead>
+                        <tr>
+                            <th class="text-start">Name</th>
+                            <th class="text-start">Total Distance</th>
+                            <th class="text-end">Total Time</th>
+                            <th class="text-end">Rides</th>
+                            <th class="text-end">Avg Time</th>
+                            <th class="text-end">Unique Riders</th>
+                        </tr>
+                    </thead>
+                    {% for t_stat in t_stats %}
+                        <tr>
+                            <td class="text-start">{{ t_stat.name }}</td>
+                            <td class="text-start">{{ t_stat.distance }}</td>
+                            <td class="text-end">{{ retTime(t_stat.time) }}</td>
+                            <td class="text-end">{{ t_stat.rides }}</td>
+                            <td class="text-end">{{ retTime(t_stat.avg_time) }}</td>
+                            <td class="text-end">{{ t_stat.unique }}</td>
+                        </tr>
+                    {% endfor %}
+                    </table>
+        </main>
+
+{% endblock %}
+
+

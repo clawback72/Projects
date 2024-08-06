@@ -1,0 +1,106 @@
+/* navbar font settings */
+nav .navbar-brand
+{
+    font-family: "Orbitron", sans-serif;
+    font-size: xx-large;
+}
+
+/* navbar colors */
+nav .navbar-brand .black
+{
+    color: #101820;
+}
+nav .navbar-brand .yellow
+{
+    color: #FFB612;
+}
+nav .navbar-brand .blue
+{
+    color: #003087;
+}
+nav .navbar-brand .red
+{
+    color: #C60C30;
+}
+nav .navbar-brand .silver
+{
+    color: #A5ACAF;
+}
+
+.date-input {
+    width: 250px;
+}
+
+/* carousel settings */
+.carousel-inner
+{
+    height: 200px;
+    position:relative;
+    display: flex;
+    align-items: center;
+}
+
+/* general settings */
+caption {
+    font-size: 140%;
+    text-align: center;
+    caption-side: top;
+    color: black;
+}
+
+/* button settings */
+.btn-primary {
+    background: #A5ACAF;
+    border-color: #101820;
+}
+
+.btn-primary:hover {
+    background: #101820;
+    border-color: #A5ACAF;
+}
+
+.btn-primary:focus {
+    background: #101820;
+    border-color: #A5ACAF;
+}
+
+.btn.btn-primary:active {
+    background: #A5ACAF;
+    border-color: #101820;
+}
+
+body {
+    background-color: #FFB612;
+}
+
+/* settings for trails page layout*/
+.trails-list img {
+    float:right;
+    margin: auto;
+    padding: 25px 25px 25px 25px
+}
+.trails-list p {
+    text-align: left;
+}
+.space {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.clear {
+    clear: both;
+}
+
+@media (max-width: 600px) {
+    .trails-list img {
+      display: block;
+      margin: auto;
+      float: none;
+    }
+}
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+    color: black
+}
+

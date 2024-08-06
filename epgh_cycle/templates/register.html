@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+
+{% block main %}
+    <form action="/register" method="post">
+        <main class="container py-6 text-center"></main>
+            <div class="mb-3">
+                <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="username" name="username" placeholder="Username" type="text">
+            </div>
+            <div class="mb-3">
+                <input autocomplete="off" class="form-control mx-auto w-auto" id="password" name="password" placeholder="Password" type="password">
+            </div>
+            <div class="mb-3">
+                <input autocomplete="off" class="form-control mx-auto w-auto" id="confirm_password" name="confirm_password" placeholder="Password (confirm)" type="password">
+            </div>
+            <div class="mb-3">
+                <input autocomplete="off" class="form-control mx-auto w-auto" id="email" name="email" placeholder="email" type="email">
+            </div>
+            <div class="mb-3">
+                <input autocomplete="off" class="form-control mx-auto w-auto" id="confirm_email" name="confirm_email" placeholder="email (confirm)" type="email">
+            </div>
+            <div class="text-center">
+                <button class="btn btn-primary" type="submit">Register</button>
+            </div>
+
+
+    </form>
+{% endblock %}

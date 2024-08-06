@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+    <form action="/index" method="post">
+        <main class="container py-6 text-center">
+        <h1>Welcome {{ name }}!</h1>
+
+            <table class="table table-striped table-dark table-hover">
+                <caption>EPGH Cyclists Most Recent Rides</caption>
+                <thead>
+                    <tr>
+                        <th class="text-start">Cyclist</th>
+                        <th class="text-start">Date</th>
+                        <th class="text-start">Trail</th>
+                        <th class="text-end">Distance</th>
+                        <th class="text-end">Time</th>
+                        <th class="text-end">AVG MPH</th>
+                    </tr>
+                </thead>
+                {% for ride in ride_data %}
+                    <tr>
+                        <td class="text-start">{{ ride.username }}</td>
+                        <td class="text-start">{{ ride.date_ride }}</td>
+                        <td class="text-start">{{ ride.loc }}</td>
+                        <td class="text-end">{{ ride.dist }}</td>
+                        <td class="text-end">{{ retTime(ride.time) }}</td>
+                        <td class="text-end">{{ ride.mph }}</td>
+                    </tr>
+                {% endfor %}
+        </main>
+
+
+{% endblock %}

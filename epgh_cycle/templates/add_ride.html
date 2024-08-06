@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Add Ride
+{% endblock %}
+
+
+{% block main %}
+    <body>
+        <form action="/add_ride" method="post">
+            <main class="container-fluid py-6">
+                <div class="mb-3 text-center">
+                    <h2>Add Ride</h2>
+                </div>
+                <div class="mb-3">
+                    <input autocomplete="off" autofocus class="form-control mx-auto date-input" id="ride_date" name="ride_date" input type="date">
+                </div>
+                <div class="mb-3">
+                    <select class="form-select mx-auto date-input" aria-label="trail" name="trail">
+                        <option disabled selected>Select Trail</option>
+                        {% for trail in trails %}
+                            <option value="{{ trail.s_name }}">{{ trail.s_name }}</option>
+                        {% endfor %}
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <input autocomplete="off" class="form-control mx-auto date-input" id="distance" name="distance" placeholder="Distance" type="number" min="0" step=".01">
+                </div>
+                <div class="mb-3">
+                    <input autocomplete="off" class="form-control mx-auto date-input" type="text" input id="time" name="time" onkeypress="format_time(this)" maxlength=8 pattern="^((\d+:)?\d+:)?\d*$"
+                    placeholder="Time (hh:mm:ss)" size=20>
+                </div>
+                <div class="mb-3">
+                    <input autocomplete="off" class="form-control mx-auto date-input" id="note" name="note" placeholder="Note" type="text">
+                </div>
+                <div class="text-center">
+                    <button class="btn btn-primary" style="center" type="submit">Add Ride</button>
+                </div>
+            </main>
+        </form>
+    </body>
+{% endblock %}

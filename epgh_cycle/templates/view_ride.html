@@ -1,0 +1,71 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    View Ride
+{% endblock %}
+
+
+{% block main %}
+    <form action="/view_ride" method="post">
+        <main class="container py-6 text-center">
+            <body>
+                <div>
+                    <h2>View Ride</h2>
+                </div>
+                <table id="view" class="center">
+                    <tr>
+                        <td class="text-end">Ride Date: </td>
+                        <td class="text-start">{{ ride[0].date_ride }}</td>
+                    </tr>
+                    <tr>
+                        <td class="text-end">Location: </td>
+                        <td class="text-start">{{ ride[0].loc }}</td>
+                    </tr>
+                    <tr>
+                        <td class="text-end">Distance: </td>
+                        <td class="text-start">{{ ride[0].dist }}</td>
+                    </tr>
+                    <tr>
+                        <td class="text-end">Time: </td>
+                        <td class="text-start">{{ retTime(ride[0].time) }}</td>
+                    </tr>
+                    <tr>
+                        <td class="text-end">MPH: </td>
+                        <td class="text-start">{{ ride[0].mph }}</td>
+                    </tr>
+                    <tr>
+                        <td class="text-end">note: </td>
+                        <td class="text-start">{{ ride[0].note }}</td>
+                    </tr>
+                </table>
+                <br>
+                <div class="text-center">
+                    <button class="btn btn-primary" style="center" value="return" name="return" type="submit">Return</button>
+                </div>
+                <br>
+                <div class="text-center">
+                    <button id="deleteButton" type="button" class="btn btn-primary" value="{{ ride_id }}" data-bs-toggle="modal" data-bs-target="#d_modal">
+                        Delete
+                      </button>
+                      <div class="modal fade" id="d_modal" tabindex="-1" aria-labelledby="d_ModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="d_ModalLabel">Confirmation</h5>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                              Are you sure you want to delete ride?
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                              <button type="button" id="confirmButton" class="btn btn-primary">Confirm</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                </div>
+            </body>
+        </main>
+
+{% endblock %}

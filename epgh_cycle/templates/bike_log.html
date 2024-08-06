@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Bike Log
+{% endblock %}
+
+{% block main %}
+    {% if ride_data != "empty" %}
+    <form action="/bike_log" method="post">
+        <main class="container py-6">
+            <table id="stable" class="table table-hover table-striped table-dark">
+                <caption>Bike Log for {{ ride_data[0].username }} (click row to view)</caption>
+                <thead>
+                    <tr>
+                        <th class="text-start">Date</th>
+                        <th class="text-start">Trail</th>
+                        <th class="text-end">Distance</th>
+                        <th class="text-end">Time</th>
+                        <th class="text-end">AVG MPH</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for ride in ride_data %}
+                    <tr data-href="view_ride?id={{ ride.ride_id }}">
+                        <td class="text-start">{{ ride.date_ride }}</td>
+                        <td class="text-start">{{ ride.loc }}</td>
+                        <td class="text-end">{{ ride.dist }}</td>
+                        <td class="text-end">{{ retTime(ride.time) }}</td>
+                        <td class="text-end">{{ ride.mph }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </main>
+        {% else %}
+        <main class="container">
+            <h1>No data available!</h1>
+            <br>
+            <div style="font-size:18px">
+                <p>Please start adding your rides on the <a href="/add_ride">add ride page</a> to view the bike log.</p>
+            </div>
+        </main>
+        {% endif %}
+
+{% endblock %}
+
